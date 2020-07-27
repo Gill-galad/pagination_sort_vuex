@@ -1,18 +1,30 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Vtable :postsData="POSTS" />t
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import { mapActions, mapGetters } from "vuex";
+import Vtable from "/components/Vtable";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld
+    Vtable
+  },
+  data: () => {
+    return {};
+  },
+  computed: {
+    ...mapGetters(["POSTS"])
+  },
+  methods: {
+    ...mapActions(["GET_POSTS_FROM_API"])
+  },
+  mounted() {
+    this.GET_POSTS_FROM_API();
   }
 };
 </script>
