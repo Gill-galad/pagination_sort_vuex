@@ -6,7 +6,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    users: []
+    posts: []
   },
   actions: {
     GET_POSTS_FROM_API({ commit }) {

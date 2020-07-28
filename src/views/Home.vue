@@ -1,13 +1,12 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <Vtable :postsData="POSTS" />t
+    <Vtable :postsData="POSTS" />
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import Vtable from "/components/Vtable";
+import Vtable from "../components/Vtable";
 
 export default {
   name: "Home",
