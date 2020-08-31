@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="table__pagination">
-      <div class="pagination__page"></div>
+      <div class="pagination__page" v-for="page in pages" :key="page">{{page}}</div>
     </div>
   </div>
 </template>
@@ -33,9 +33,15 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      postsPerPage: 10
+    };
   },
-  computed: {}
+  computed: {
+    pages() {
+      return Math.ceil(this.postsData.length / 10);
+    }
+  }
 };
 </script>
 
@@ -50,6 +56,16 @@ export default {
     p {
       flex-basis: 33.3%;
       text-align: center;
+    }
+  }
+  &__pagination{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+    .pagination__page{
+      padding: 8px;
+      border: 1px solid #e7e7e7;
     }
   }
 }
