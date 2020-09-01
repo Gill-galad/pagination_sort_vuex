@@ -2,7 +2,7 @@
   <div class="table">
     <div class="table__header">
       <p>ID <i class="material-icons">unfold_more</i></p>
-      <p>Title <i class="material-icons">unfold_more</i></p>
+      <p @click="sortByTitle">Title <i class="material-icons">unfold_more</i></p>
       <p>Body <i class="material-icons">unfold_more</i></p>
     </div>
     <div class="table__body">
@@ -53,6 +53,9 @@ export default {
   methods: {
     pageClick(page) {
       this.pageNumber = page;
+    },
+    sortByTitle() {
+      this.postsData.sort((a, b) => a.name.localCompare(b.name));
     }
   }
 };
@@ -67,8 +70,12 @@ export default {
     justify-content: space-around;
     border-bottom: solid 1px #e7e7e7;
     p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       flex-basis: 33.3%;
       text-align: center;
+      cursor:pointer;
     }
   }
   &__pagination {
